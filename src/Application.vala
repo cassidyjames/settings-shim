@@ -60,17 +60,26 @@ public class Application : Gtk.Application {
         // TODO: Stuff
         print ("Attempting to open “%s”\n", link);
 
-        // https://github.com/elementary/switchboard/wiki/System-Settings-Schema-Specification
-        switch (link) {
-            case "":
-                // TODO: bare app
-                break;
-            case "network":
-                // TODO: Network
-                break;
-            default:
-                critical ("Settings URI “%s” not (yet) supported", link);
-                break;
+        if (info != null) {
+            string flag = "";
+
+            // https://github.com/elementary/switchboard/wiki/System-Settings-Schema-Specification
+            switch (link) {
+                case "":
+                    break;
+                case "network":
+                    flag = "network";
+                    break;
+                default:
+                    critical ("Settings URI “%s” not (yet) supported", link);
+                    break;
+            }
+
+            try {
+                Process.spawn_command_line_async ("gnome-control-center %s");
+            } catch (Error e) {
+                critical ("Could not launch: %s", e.message);
+            }
         }
 
         quit ();
