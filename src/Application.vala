@@ -20,7 +20,7 @@
 */
 
 public class Application : Gtk.Application {
-    private static string? link  = null;
+    private static string? link = null;
 
     public Application () {
         Object (
@@ -57,10 +57,9 @@ public class Application : Gtk.Application {
     }
 
     protected override void activate () {
-        // TODO: Stuff
         print ("Attempting to open “%s”\n", link);
 
-        if (info != null) {
+        if (link != null) {
             string flag = "";
 
             // https://github.com/elementary/switchboard/wiki/System-Settings-Schema-Specification
