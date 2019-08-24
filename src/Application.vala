@@ -75,7 +75,7 @@ public class Application : Gtk.Application {
             }
 
             try {
-                Process.spawn_command_line_async ("gnome-control-center %s");
+                Process.spawn_command_line_async ("gnome-control-center %s".printf (flag));
             } catch (Error e) {
                 critical ("Could not launch: %s", e.message);
             }
