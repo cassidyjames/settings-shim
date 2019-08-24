@@ -3,5 +3,6 @@ Name=Settings Shim
 Exec=com.github.cassidyjames.settings-shim %U
 Icon=application-default
 Terminal=false
+Type=Application
 MimeType=x-scheme-handler/settings;
 
