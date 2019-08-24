@@ -29,17 +29,6 @@ public class Application : Gtk.Application {
         );
     }
 
-    construct {
-        if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
-            var appinfo = new GLib.DesktopAppInfo (application_id + ".desktop");
-            try {
-                appinfo.set_as_default_for_type ("x-scheme-handler/settings");
-            } catch (Error e) {
-                critical ("Unable to set default for the settings scheme: %s", e.message);
-            }
-        }
-    }
-
     public override void open (File[] files, string hint) {
         var file = files[0];
         if (file == null) {
@@ -57,6 +46,15 @@ public class Application : Gtk.Application {
     }
 
     protected override void activate () {
+        if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
+            var appinfo = new GLib.DesktopAppInfo (application_id + ".desktop");
+            try {
+                appinfo.set_as_default_for_type ("x-scheme-handler/settings");
+            } catch (Error e) {
+                critical ("Unable to set default for the settings scheme: %s", e.message);
+            }
+        }
+
         print ("Attempting to open “%s”\n", link);
 
         if (link != null) {
