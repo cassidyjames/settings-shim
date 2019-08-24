@@ -66,9 +66,81 @@ public class Application : Gtk.Application {
             switch (link) {
                 case "":
                     break;
+                case "accounts":
+                    flag = "user-accounts";
+                    break;
+                case "accounts/online":
+                    flag = "online-accounts";
+                    break;
+                case "applications/defaults":
+                    flag = "default-apps";
+                    break;
+                case "date":
+                case "time":
+                    flag = "datetime";
+                    break;
+                case "desktop/appearance/wallpaper":
+                    flag = "background";
+                    break;
+                case "display":
+                    flag = "display";
+                    break;
+                case "display/color":
+                    flag = "color";
+                    break;
+                case "input/keyboard":
+                    flag = "keyboard";
+                    break;
+                case "input/pointing/mouse":
+                    flag = "mouse";
+                    break;
+                case "input/pointing/stylus":
+                    flag = "wacom";
+                    break;
+                case "language":
+                    flag = "region";
+                    break;
                 case "network":
                     flag = "network";
                     break;
+                case "network/bluetooth":
+                    flag = "bluetooth";
+                    break;
+                case "network/share":
+                    flag = "sharing";
+                    break;
+                case "notifications":
+                    flag = "notifications";
+                    break;
+                case "power":
+                    flag = "power";
+                    break;
+                case "printer":
+                    flag = "printers";
+                    break;
+                case "privacy":
+                case "privacy/location":
+                case "privacy/trash":
+                case "security":
+                case "security/locking":
+                    flag = "privacy";
+                    break;
+                case "sound":
+                case "sound/input":
+                case "sound/output":
+                    flag = "sound";
+                    break;
+                case "universal-access":
+                    flag = "universal-access";
+                    break;
+                case "applications/startup":
+                case "desktop":
+                case "desktop/appearance":
+                case "desktop/dock":
+                case "input":
+                case "input/pointing":
+                case "input/pointing/touch":
+                case "security/firewall":
                 default:
                     critical ("Settings URI “%s” not (yet) supported", link);
                     break;
