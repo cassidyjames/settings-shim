@@ -1,5 +1,7 @@
 [Desktop Entry]
 Name=Settings Shim
+GenericName=Settings URI Handler
+Comment=Open settings:// links in GNOME Settings
 Exec=com.github.cassidyjames.settings-shim %U
 Icon=application-default
 Terminal=false
