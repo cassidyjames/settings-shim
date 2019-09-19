@@ -60,9 +60,13 @@ public class Application : Gtk.Application {
         if (link != null) {
             string flag = "";
 
+            // Implements System Settings Schema Specification v1.1
             // https://github.com/elementary/switchboard/wiki/System-Settings-Schema-Specification
             switch (link) {
                 case "":
+                    break;
+                case "about":
+                    flag = "info-overview";
                     break;
                 case "accounts":
                     flag = "user-accounts";
