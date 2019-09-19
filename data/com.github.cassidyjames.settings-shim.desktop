@@ -5,5 +5,5 @@ Icon=application-default
 Terminal=false
 Type=Application
 MimeType=x-scheme-handler/settings;
-OnlyShowIn=GNOME
+NoDisplay=true
 
