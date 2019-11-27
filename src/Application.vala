@@ -163,4 +163,3 @@ public class Application : Gtk.Application {
         return app.run (args);
     }
 }
-
